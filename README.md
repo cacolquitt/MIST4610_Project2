@@ -98,7 +98,7 @@ Injuries Table
 
 Queries:
 
-Query #1: 
+Query #1: Join
 SELECT 
 
     p.Player_ID, p.Name AS Player_Name, p.Position, p.Height, p.Weight, 
@@ -163,7 +163,7 @@ ORDER BY
 ![image](https://github.com/user-attachments/assets/d955e23c-85cb-41e3-a512-0d7f77965277)
 ![image](https://github.com/user-attachments/assets/f67e22bc-b9ca-4b2d-b150-120bf616fdc0)
 
-Query #2:
+Query #2: Show me all the players on the Bengals who have more than one touchdown
 
 SELECT p.Name, SUM(s.Touchdowns) AS Total_Touchdowns
 FROM Player p
@@ -175,7 +175,7 @@ HAVING SUM(s.Touchdowns) > 1;
 
 ![image](https://github.com/user-attachments/assets/b00c4653-3863-4861-ad1d-52e4a9f6f659)
 
-Query #3:
+Query #3: Show me all the players that have not won an MVP award group by yards in descending order
 
 SELECT p.Name, SUM(s.Yards) AS Total_Yards
 FROM Player p
@@ -187,7 +187,7 @@ ORDER BY Total_Yards DESC;
 
 ![image](https://github.com/user-attachments/assets/91100656-5caa-47f3-a61d-035c4b47d531)
 
-Query #4:
+Query #4: Show me all the players that have suffered an injury that have registered at least one yard
 
 SELECT p.Name, SUM(s.Yards) AS Total_Yards, i.Description AS Injury_Description, i.Recovery_Time
 FROM Player p
@@ -198,7 +198,22 @@ GROUP BY p.Name, i.Description, i.Recovery_Time;
 
 ![image](https://github.com/user-attachments/assets/337116be-df08-4ea0-b219-0d3fdd952702)
 
-Query #5:
+Query #5: 
+
+SELECT P.Name, P.Position, A.Type AS Award_Type, G.Game_Date, S1.Yards AS Player_Yards, S2.Total_Yards
+FROM Player P
+JOIN Award A ON P.Player_ID = A.Player_ID
+JOIN Statistics S1 ON P.Player_ID = S1.Player_ID
+JOIN Game G ON S1.Game_ID = G.Game_ID
+JOIN (
+    SELECT G.Game_ID, SUM(S.Yards) AS Total_Yards
+    FROM Statistics S
+    JOIN Game G ON S.Game_ID = G.Game_ID
+    GROUP BY G.Game_ID
+    HAVING SUM(S.Yards) > 50
+) S2 ON G.Game_ID = S2.Game_ID;
+
+![image](https://github.com/user-attachments/assets/04f1c17e-3165-402c-9e51-35a4a14c5379)
 
 Query #6: 
 
@@ -214,6 +229,7 @@ JOIN (
 ) S ON P.Player_ID = S.Player_ID
 WHERE C.Experience > 10;
 
+![image](https://github.com/user-attachments/assets/41820369-70f7-49f7-94de-f32d12b7abfc)
 
 Query #7: 
 
