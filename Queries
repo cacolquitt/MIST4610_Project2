@@ -1,0 +1,159 @@
+Query #1: 
+
+    p.Player_ID, p.Name AS Player_Name, p.Position, p.Height, p.Weight, 
+
+    t.Team_ID, t.Name AS Team_Name, t.City AS Team_City, 
+
+    c.Coach_ID, c.Name AS Coach_Name, c.Experience AS Coach_Experience,
+
+    g.Game_ID, g.Game_Date, g.Home_Team, g.Away_Team, 
+
+    st.Stadium_ID, st.Name AS Stadium_Name, st.City AS Stadium_City,
+
+    s.Season_ID, s.Year AS Season_Year,
+
+    stat.Stat_ID, stat.Yards, stat.Touchdowns, 
+
+    inj.Injury_ID, inj.Description AS Injury_Description, inj.Recovery_Time,
+
+    a.Award_ID, a.Type AS Award_Type
+
+FROM 
+
+    Player p
+
+JOIN 
+
+    Team t ON p.Team_ID = t.Team_ID
+
+JOIN 
+
+    Coach c ON t.Coach = c.Coach_ID
+
+JOIN 
+
+    Game g ON (g.Home_Team = t.Team_ID OR g.Away_Team = t.Team_ID)
+
+JOIN 
+
+    Stadium st ON g.Stadium_ID = st.Stadium_ID
+
+JOIN 
+
+    Season s ON g.Season_ID = s.Season_ID
+
+LEFT JOIN 
+
+    Statistics stat ON p.Player_ID = stat.Player_ID AND g.Game_ID = stat.Game_ID
+
+LEFT JOIN 
+
+    Injury inj ON p.Player_ID = inj.Player_ID AND g.Game_ID = inj.Game_ID
+
+LEFT JOIN 
+
+    Award a ON p.Player_ID = a.Player_ID AND s.Season_ID = a.Season_ID
+
+ORDER BY 
+
+    p.Player_ID, g.Game_Date;
+
+Query #2: 
+
+SELECT p.Name, SUM(s.Touchdowns) AS Total_Touchdowns
+FROM Player p
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+JOIN Team t ON p.Team_ID = t.Team_ID
+WHERE t.Name = 'Cincinnati Bengals'
+GROUP BY p.Name
+HAVING SUM(s.Touchdowns) > 1;
+
+Query #3: 
+
+SELECT p.Name, SUM(s.Yards) AS Total_Yards
+FROM Player p
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+LEFT JOIN Award a ON p.Player_ID = a.Player_ID AND a.Type = 'MVP'
+WHERE a.A2ward_ID IS NULL
+GROUP BY p.Name
+ORDER BY Total_Yards DESC;
+
+
+Query #4: 
+
+SELECT p.Name, SUM(s.Yards) AS Total_Yards, i.Description AS Injury_Description, i.Recovery_Time
+FROM Player p
+JOIN Injury i ON p.Player_ID = i.Player_ID
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+WHERE s.Yards > 0
+GROUP BY p.Name, i.Description, i.Recovery_Time;
+
+Query #5: 
+
+SELECT P.Name, P.Position, A.Type AS Award_Type, G.Game_Date, S1.Yards AS Player_Yards, S2.Total_Yards
+FROM Player P
+JOIN Award A ON P.Player_ID = A.Player_ID
+JOIN Statistics S1 ON P.Player_ID = S1.Player_ID
+JOIN Game G ON S1.Game_ID = G.Game_ID
+JOIN (
+    SELECT G.Game_ID, SUM(S.Yards) AS Total_Yards
+    FROM Statistics S
+    JOIN Game G ON S.Game_ID = G.Game_ID
+    GROUP BY G.Game_ID
+    HAVING SUM(S.Yards) > 50
+) S2 ON G.Game_ID = S2.Game_ID;
+
+
+Query #6: 
+
+SELECT T.Name AS Team_Name, C.Name AS Coach_Name, P.Name AS Player_Name, S.Touchdowns
+FROM Team T
+JOIN Coach C ON T.Coach = C.Coach_ID
+JOIN Player P ON T.Team_ID = P.Team_ID
+JOIN (
+    SELECT Player_ID, MAX(Touchdowns) AS Touchdowns
+    FROM Statistics
+    GROUP BY Player_ID
+    HAVING MAX(Touchdowns) >= 3
+) S ON P.Player_ID = S.Player_ID
+WHERE C.Experience > 10;
+
+
+Query #7: 
+
+SELECT *
+FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID
+WHERE t.Name = 'Buffalo Bills';
+
+Queery #8:
+
+SELECT p.Name, a.Type
+FROM Player p
+JOIN Award a ON p.Player_ID = a.Player_ID
+WHERE a.Type = 'MVP';
+
+
+Query #9: 
+
+SELECT p.Name
+FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID
+JOIN Game g ON t.Team_ID = g.Home_Team
+JOIN Stadium s ON g.Stadium_ID = s.Stadium_ID
+WHERE s.Name = 'Arrowhead Stadium';
+
+
+Query #10: 
+
+SELECT P.Name
+FROM Player P
+JOIN Statistics S ON P.Player_ID = S.Player_ID
+WHERE S.Touchdowns > 0;
+
+
+
+
+
+
+
