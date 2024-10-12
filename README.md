@@ -94,5 +94,9 @@ Injuries Table
   Description (VARCHAR 255)
   Recovery_Time (INT)
 
+![image](https://github.com/user-attachments/assets/aae5fc00-53ca-47d1-a681-144e60df67ca)
+
+  
+
 
 
