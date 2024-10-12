@@ -96,6 +96,113 @@ Injuries Table
 
 ![image](https://github.com/user-attachments/assets/aae5fc00-53ca-47d1-a681-144e60df67ca)
 
+Queries:
+
+Query #1: 
+SELECT 
+
+    p.Player_ID, p.Name AS Player_Name, p.Position, p.Height, p.Weight, 
+
+    t.Team_ID, t.Name AS Team_Name, t.City AS Team_City, 
+
+    c.Coach_ID, c.Name AS Coach_Name, c.Experience AS Coach_Experience,
+
+    g.Game_ID, g.Game_Date, g.Home_Team, g.Away_Team, 
+
+    st.Stadium_ID, st.Name AS Stadium_Name, st.City AS Stadium_City,
+
+    s.Season_ID, s.Year AS Season_Year,
+
+    stat.Stat_ID, stat.Yards, stat.Touchdowns, 
+
+    inj.Injury_ID, inj.Description AS Injury_Description, inj.Recovery_Time,
+
+    a.Award_ID, a.Type AS Award_Type
+
+FROM 
+
+    Player p
+
+JOIN 
+
+    Team t ON p.Team_ID = t.Team_ID
+
+JOIN 
+
+    Coach c ON t.Coach = c.Coach_ID
+
+JOIN 
+
+    Game g ON (g.Home_Team = t.Team_ID OR g.Away_Team = t.Team_ID)
+
+JOIN 
+
+    Stadium st ON g.Stadium_ID = st.Stadium_ID
+
+JOIN 
+
+    Season s ON g.Season_ID = s.Season_ID
+
+LEFT JOIN 
+
+    Statistics stat ON p.Player_ID = stat.Player_ID AND g.Game_ID = stat.Game_ID
+
+LEFT JOIN 
+
+    Injury inj ON p.Player_ID = inj.Player_ID AND g.Game_ID = inj.Game_ID
+
+LEFT JOIN 
+
+    Award a ON p.Player_ID = a.Player_ID AND s.Season_ID = a.Season_ID
+
+ORDER BY 
+
+    p.Player_ID, g.Game_Date;
+
+![image](https://github.com/user-attachments/assets/d305c365-71f0-49b0-88f3-cb39b6b9098a)
+![image](https://github.com/user-attachments/assets/d955e23c-85cb-41e3-a512-0d7f77965277)
+![image](https://github.com/user-attachments/assets/f67e22bc-b9ca-4b2d-b150-120bf616fdc0)
+
+Query #2:
+
+SELECT p.Name, SUM(s.Touchdowns) AS Total_Touchdowns
+FROM Player p
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+JOIN Team t ON p.Team_ID = t.Team_ID
+WHERE t.Name = 'Cincinnati Bengals'
+GROUP BY p.Name
+HAVING SUM(s.Touchdowns) > 1;
+
+![image](https://github.com/user-attachments/assets/b00c4653-3863-4861-ad1d-52e4a9f6f659)
+
+Query #3:
+
+SELECT p.Name, SUM(s.Yards) AS Total_Yards
+FROM Player p
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+LEFT JOIN Award a ON p.Player_ID = a.Player_ID AND a.Type = 'MVP'
+WHERE a.Award_ID IS NULL
+GROUP BY p.Name
+ORDER BY Total_Yards DESC;
+
+![image](https://github.com/user-attachments/assets/91100656-5caa-47f3-a61d-035c4b47d531)
+
+Query #4:
+
+SELECT p.Name, SUM(s.Yards) AS Total_Yards, i.Description AS Injury_Description, i.Recovery_Time
+FROM Player p
+JOIN Injury i ON p.Player_ID = i.Player_ID
+JOIN Statistics s ON p.Player_ID = s.Player_ID
+WHERE s.Yards > 0
+GROUP BY p.Name, i.Description, i.Recovery_Time;
+
+![image](https://github.com/user-attachments/assets/337116be-df08-4ea0-b219-0d3fdd952702)
+
+Query #5:
+
+
+
+
   
 
 
