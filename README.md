@@ -198,7 +198,7 @@ GROUP BY p.Name, i.Description, i.Recovery_Time;
 
 ![image](https://github.com/user-attachments/assets/337116be-df08-4ea0-b219-0d3fdd952702)
 
-Query #5: 
+Query #5: Which players have won an award and how many yards did they gain in games where the total yards exceeded 50?
 
 SELECT P.Name, P.Position, A.Type AS Award_Type, G.Game_Date, S1.Yards AS Player_Yards, S2.Total_Yards
 FROM Player P
@@ -215,7 +215,7 @@ JOIN (
 
 ![image](https://github.com/user-attachments/assets/04f1c17e-3165-402c-9e51-35a4a14c5379)
 
-Query #6: 
+Query #6: Which players, coached by experienced coaches (with over 10 years of experience), scored at least 3 touchdowns in a game?
 
 SELECT T.Name AS Team_Name, C.Name AS Coach_Name, P.Name AS Player_Name, S.Touchdowns
 FROM Team T
@@ -231,22 +231,26 @@ WHERE C.Experience > 10;
 
 ![image](https://github.com/user-attachments/assets/41820369-70f7-49f7-94de-f32d12b7abfc)
 
-Query #7: 
+Query #7: Show all the players on the Bills
 
 SELECT *
 FROM Player p
 JOIN Team t ON p.Team_ID = t.Team_ID
 WHERE t.Name = 'Buffalo Bills';
 
-Queery #8:
+![image](https://github.com/user-attachments/assets/fdbe9f57-70e4-461d-8a5d-ffda66af57bb)
+
+
+Query #8: Show all the players that have won an MVP award
 
 SELECT p.Name, a.Type
 FROM Player p
 JOIN Award a ON p.Player_ID = a.Player_ID
 WHERE a.Type = 'MVP';
 
+![image](https://github.com/user-attachments/assets/4619a892-0020-4f04-8975-a6fe7ccf0b74)
 
-Query #9: 
+Query #9: Select all the players who play in Arrowhead stadium
 
 SELECT p.Name
 FROM Player p
@@ -255,13 +259,17 @@ JOIN Game g ON t.Team_ID = g.Home_Team
 JOIN Stadium s ON g.Stadium_ID = s.Stadium_ID
 WHERE s.Name = 'Arrowhead Stadium';
 
+![image](https://github.com/user-attachments/assets/24c5c45a-8c8e-4622-baf8-beda9f3b2ecb)
 
-Query #10: 
+Query #10: Show all the players that have scored a touchdown
 
 SELECT P.Name
 FROM Player P
 JOIN Statistics S ON P.Player_ID = S.Player_ID
 WHERE S.Touchdowns > 0;
+
+![image](https://github.com/user-attachments/assets/4ace3d38-7013-419e-b720-fabc6ed911e2)
+
 
 
 
