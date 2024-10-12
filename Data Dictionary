@@ -1,0 +1,75 @@
+Coach Table:
+  Tells the information about the coaches. It is only current data and headcoaches so there is only one coach per team.
+  Coach_ID (INT) PK
+  Name (VARCHAR 50)
+  Experience (INT) How long they have been HC
+
+Team Table
+  Stores information about the football teams in the database.
+  Team_ID (INT) PK
+  Name (VARCHAR 50)
+  City (VARCHAR 50)
+  Coach (INT) FK that references the coach_id number PK
+
+Stadium Table
+  Stores infromation about the football stadiums the teams play in
+  Stadium_ID (INT) PK
+  Name (VARCHAR 100) 
+  City (VARCHAR 50)
+
+Season Table
+  Stores details about the different seasons
+  Season_ID (INT) PK
+  Year (INT) 
+
+Player Table
+  Stores details about the players
+  Player_ID (INT) PK
+  Name (VARCHAR 50)
+  Position (VARCHAR 50)
+  Team_ID (INT) FK refernces the teams said player plays for
+  Height (INT) inches
+  Weight (INT)
+
+Award Table
+  Tracks the awards the players have won
+  Award_ID (INT) PK
+  Player_ID (INT) FK to track which player wins which award
+  Type (VARCHAR 50)
+  Season_ID (INT) FK that says in which season a player won an award
+
+Game Table
+  Tracks games in the NFL season
+  Game_ID (INT) PK
+  Game_Date (DATE)
+  Home_Team (INT) FK that references the team table
+  Away_Team (INT) FK that references the team table
+  Stadium_ID (INT) FK that references the stadium table
+  Season_ID (INT) FK that references the season table
+
+Statistics Table
+  Tracks stats for the season
+  Stat_ID (INT) PK
+  Player_ID (INT) FK that references the player table
+  Game_ID (INT) FK that references the game table
+  Yards (INT) 
+  Touchdowns (INT)
+
+Division Table:
+  Tracks the division names
+  Division_ID (INT) PK
+  Name (VARCHAR 50)
+
+Division_Team Table
+  Tracks which teams play in which divisions
+  Team_ID (INT) PK/FK that references the team table
+  Division_ID (INT) PK/FK taht references the division table
+
+Injuries Table
+  Tracks injuries
+  Injury_ID (INT) PK
+  Player_ID (INT) FK that references the player table
+  Game_ID (INT) FK that references the game table
+  Description (VARCHAR 255)
+  Recovery_Time (INT)
+  
