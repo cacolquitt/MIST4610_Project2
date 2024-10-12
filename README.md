@@ -200,6 +200,53 @@ GROUP BY p.Name, i.Description, i.Recovery_Time;
 
 Query #5:
 
+Query #6: 
+
+SELECT T.Name AS Team_Name, C.Name AS Coach_Name, P.Name AS Player_Name, S.Touchdowns
+FROM Team T
+JOIN Coach C ON T.Coach = C.Coach_ID
+JOIN Player P ON T.Team_ID = P.Team_ID
+JOIN (
+    SELECT Player_ID, MAX(Touchdowns) AS Touchdowns
+    FROM Statistics
+    GROUP BY Player_ID
+    HAVING MAX(Touchdowns) >= 3
+) S ON P.Player_ID = S.Player_ID
+WHERE C.Experience > 10;
+
+
+Query #7: 
+
+SELECT *
+FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID
+WHERE t.Name = 'Buffalo Bills';
+
+Queery #8:
+
+SELECT p.Name, a.Type
+FROM Player p
+JOIN Award a ON p.Player_ID = a.Player_ID
+WHERE a.Type = 'MVP';
+
+
+Query #9: 
+
+SELECT p.Name
+FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID
+JOIN Game g ON t.Team_ID = g.Home_Team
+JOIN Stadium s ON g.Stadium_ID = s.Stadium_ID
+WHERE s.Name = 'Arrowhead Stadium';
+
+
+Query #10: 
+
+SELECT P.Name
+FROM Player P
+JOIN Statistics S ON P.Player_ID = S.Player_ID
+WHERE S.Touchdowns > 0;
+
 
 
 
