@@ -4,25 +4,25 @@ Coach Table:
   Name (VARCHAR 50)
   Experience (INT) How long they have been HC
 
-Team Table
+Team Table:
   Stores information about the football teams in the database.
   Team_ID (INT) PK
   Name (VARCHAR 50)
   City (VARCHAR 50)
   Coach (INT) FK that references the coach_id number PK
 
-Stadium Table
+Stadium Table:
   Stores infromation about the football stadiums the teams play in
   Stadium_ID (INT) PK
   Name (VARCHAR 100) 
   City (VARCHAR 50)
 
-Season Table
+Season Table:
   Stores details about the different seasons
   Season_ID (INT) PK
   Year (INT) 
 
-Player Table
+Player Table:
   Stores details about the players
   Player_ID (INT) PK
   Name (VARCHAR 50)
@@ -31,14 +31,14 @@ Player Table
   Height (INT) inches
   Weight (INT) pounds
 
-Award Table
+Award Table:
   Tracks the awards the players have won
   Award_ID (INT) PK
   Player_ID (INT) FK to track which player wins which award
   Type (VARCHAR 50)
   Season_ID (INT) FK that says in which season a player won an award
 
-Game Table
+Game Table:
   Tracks games in the NFL season
   Game_ID (INT) PK
   Game_Date (DATE)
@@ -47,7 +47,7 @@ Game Table
   Stadium_ID (INT) FK that references the stadium table
   Season_ID (INT) FK that references the season table
 
-Statistics Table
+Statistics Table:
   Tracks stats for the season
   Stat_ID (INT) PK
   Player_ID (INT) FK that references the player table
@@ -66,12 +66,12 @@ Division Table:
   Division_ID (INT) PK
   Name (VARCHAR 50)
 
-Team_Division Table
+Team_Division Table:
   Tracks which teams play in which divisions
   Team_ID (INT) PK/FK that references the team table
   Division_ID (INT) PK/FK that references the division table
 
-Injuries Table
+Injuries Table:
   Tracks injuries
   Injury_ID (INT) PK
   Player_ID (INT) FK that references the player table
@@ -79,7 +79,7 @@ Injuries Table
   Description (VARCHAR 255)
   Recovery_Time (INT)
 
-Team_Record Table
+Team_Record Table:
   Tracks team's record
   Record_ID (INT) PK
   Team_ID (INT) FK
@@ -88,7 +88,7 @@ Team_Record Table
   Losses (INT)
   Ties (INT)
 
-Contract Table
+Contract Table:
   Tracks contracts signed between teams and players
   Contract_ID (INT) PK
   Player_ID (INT) FK
@@ -97,7 +97,7 @@ Contract Table
   End_Date (DATE)
   Salary (DECIMAL)
 
-Trade Table
+Trade Table:
   Tracks trade transactions
   Trade_ID (INT) PK
   Player_ID (INT) FK
