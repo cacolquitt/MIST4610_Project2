@@ -65,3 +65,4 @@ Season_ID (INT) FK: References the season.
 Wins (INT): Number of wins.
 Losses (INT): Number of losses.
 Ties (INT): Number of ties.
+
