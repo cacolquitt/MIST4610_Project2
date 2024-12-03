@@ -144,3 +144,4 @@ Tableau Model #2: WR total yards (receiving and rushing yards combined) vs losse
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%202.png?raw=true)
 
 Tableau Model #3: Created a total performance field by summing total yards and adding it to (6 x Touchdowns) to factor in the added value of touchdowns. Then plotted salary vs the total performance metric. Seems like the more a player is paid, the better they perform. Once again correlation does not mean causation
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%203.png?raw=true)
