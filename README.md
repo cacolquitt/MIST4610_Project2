@@ -122,3 +122,5 @@ Queries:
 Query #1: Multi Join
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%201%20(2).png?raw=true)
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%201.png?raw=true)
+
+Query #2: Show all the players that have a contract worth more than $200 million, that also have more than 8 wins, have not suffered an injury, and have won an MVP award.
