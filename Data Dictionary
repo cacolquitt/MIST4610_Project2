@@ -26,10 +26,10 @@ Player Table
   Stores details about the players
   Player_ID (INT) PK
   Name (VARCHAR 50)
-  Position (VARCHAR 50)
+  Position (VARCHAR 20)
   Team_ID (INT) FK refernces the teams said player plays for
   Height (INT) inches
-  Weight (INT)
+  Weight (INT) pounds
 
 Award Table
   Tracks the awards the players have won
@@ -52,18 +52,24 @@ Statistics Table
   Stat_ID (INT) PK
   Player_ID (INT) FK that references the player table
   Game_ID (INT) FK that references the game table
-  Yards (INT) 
-  Touchdowns (INT)
+  Passing_Yards (INT) 
+  Rushing_Yards (INT)
+  Receiving_Yards (INT)
+  Passing_Touchdowns (INT)
+  Rushing_Touchdowns (INT)
+  Receiving_Touchdowns (INT)
+  Interceptions (INT)
+  Fumbles (INT)
 
 Division Table:
   Tracks the division names
   Division_ID (INT) PK
   Name (VARCHAR 50)
 
-Division_Team Table
+Team_Division Table
   Tracks which teams play in which divisions
   Team_ID (INT) PK/FK that references the team table
-  Division_ID (INT) PK/FK taht references the division table
+  Division_ID (INT) PK/FK that references the division table
 
 Injuries Table
   Tracks injuries
@@ -72,4 +78,29 @@ Injuries Table
   Game_ID (INT) FK that references the game table
   Description (VARCHAR 255)
   Recovery_Time (INT)
-  
+
+Team_Record Table
+  Tracks team's record
+  Record_ID (INT) PK
+  Team_ID (INT) FK
+  Season_ID (INT) FK
+  Wins (INT)
+  Losses (INT)
+  Ties (INT)
+
+Contract Table
+  Tracks contracts signed between teams and players
+  Contract_ID (INT) PK
+  Player_ID (INT) FK
+  Team_ID (INT) FK
+  Start_Date (DATE)
+  End_Date (DATE)
+  Salary (DECIMAL)
+
+Trade Table
+  Tracks trade transactions
+  Trade_ID (INT) PK
+  Player_ID (INT) FK
+  From_Team (INT) FK
+  To_Team (INT) FK
+  Trade_Date (DATE)
