@@ -134,3 +134,7 @@ Query #4: Show all players traded in the month of October, along with their team
 
 Query #5: Show all players in that have been injured that have at least 100 passing, rushing or receiving yards while showing their height, weight, and yards. Group each player by division and order them in descending order of yards
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%205.png?raw=true)
+
+Tableau:
+
+Tableau Model #1: QB Salary and Team Wins. Shows a mostly positive correlation between paying your QB more and winning more. Remember correlation does not mean causation, but does show that maybe paying a good QB does help your team in the long run
