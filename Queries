@@ -1,4 +1,4 @@
-Query #1
+Query #1:
     SELECT 
     p.Player_ID AS PlayerID,
     p.Name AS PlayerName, -- Player Name
@@ -56,8 +56,8 @@ FROM
     LEFT JOIN Stadium s ON t.City = s.City
     LEFT JOIN Contract ct ON p.Player_ID = ct.Player_ID AND t.Team_ID = ct.Team_ID
     LEFT JOIN Trade tr ON p.Player_ID = tr.Player_ID
-    LEFT JOIN Game g ON g.Home_Team = t.Team_ID OR g.Away_Team = t.Team_ID  -- Join Game to Team directly
-    LEFT JOIN Season se ON g.Season_ID = se.Season_ID  -- Game -> Season connection
+    LEFT JOIN Game g ON g.Home_Team = t.Team_ID OR g.Away_Team = t.Team_ID  
+    LEFT JOIN Season se ON g.Season_ID = se.Season_ID  -- Game 
     LEFT JOIN Award a ON a.Player_ID = p.Player_ID
     LEFT JOIN Team_Division td ON td.Team_ID = t.Team_ID
     LEFT JOIN Division d ON d.Division_ID = td.Division_ID
@@ -66,7 +66,7 @@ FROM
     LEFT JOIN Team_Record trr ON trr.Team_ID = t.Team_ID AND trr.Season_ID = se.Season_ID
 ORDER BY p.Player_ID, se.Year;
 
-Query #2
+Query #2:
     SELECT DISTINCT 
     p.Name AS Player_Name,
     c.Salary,
@@ -95,7 +95,7 @@ GROUP BY
 HAVING 
     (SUM(s.Passing_Touchdowns) + SUM(s.Rushing_Touchdowns) + SUM(s.Receiving_Touchdowns)) >= 10;
 
-Query #3
+Query #3:
     SELECT DISTINCT 
     p.Name AS Player_Name,
     t.Name AS Team_Name,
@@ -121,7 +121,7 @@ WHERE
     AND d.Name LIKE 'NFC%'
     AND tr.Wins > 5;
 
-Query #4
+Query #4:
     SELECT 
     p.Name AS Player_Name,
     t.Name AS Team_Name,
@@ -151,7 +151,7 @@ WHERE
 GROUP BY 
     p.Player_ID, t.Team_ID, tr.Wins, tr.Losses, p.Height, p.Weight;
 
-Query #5
+Query #5:
     SELECT 
     p.Player_ID, 
     p.Name, 
@@ -170,11 +170,3 @@ WHERE
     (s.Passing_Yards + s.Rushing_Yards + s.Receiving_Yards) >= 100
 GROUP BY p.Player_ID, p.Name, p.Position, p.Height, p.Weight, d.Name
 ORDER BY Total_Yards DESC;
-
-
-
-
-
-
-
-
