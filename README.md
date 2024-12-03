@@ -22,7 +22,7 @@ Division: Defines the NFL divisions.
 Contract: Stores contract details of players.
 Trade: Tracks player trades between teams.
 Team_Record: Tracks a team's record in a given season.
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/raw/main/Data%20Model.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/raw/main/.images/Data%20Model.png?raw=true)
 
 Data Dictionary:
 
@@ -120,28 +120,28 @@ Game Table:
 Queries:
 
 Query #1: Multi Join
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%201%20(2).png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%201%20(2).png?raw=true)
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%201.png?raw=true)
 
 Query #2: Show all the players that have a contract worth more than $200 million, that also have more than 8 wins, have not suffered an injury, and have won an MVP award
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%202.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%202.png?raw=true)
 
 Query #3: Show all the players that have at least one receiving and one rushing touchdown that play in an NFC division with more than 5 wins
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%203.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%203.png?raw=true)
 
 Query #4: Show all players traded in the month of October, along with their team record, height, weight, and touchdowns, that have not suffered not an injury
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%204.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%204.png?raw=true)
 
 Query #5: Show all players in that have been injured that have at least 100 passing, rushing or receiving yards while showing their height, weight, and yards. Group each player by division and order them in descending order of yards
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%205.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Query%205.png?raw=true)
 
 Tableau:
 
 Tableau Model #1: QB Salary and Team Wins. Shows a mostly positive correlation between paying your QB more and winning more. Remember correlation does not mean causation, but does show that maybe paying a good QB does help your team in the long run
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%201.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Tableau%20Model%201.png?raw=true)
 
 Tableau Model #2: WR total yards (receiving and rushing yards combined) vs losses. As you can see the players with more total yards are typically on the left side of the graph, meaning they have fewer losses. The players with low yardage totals on the left side of the graph could indicate that they do not impact winning for their team. However, again correlation doesn't equal causation
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%202.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Tableau%20Model%202.png?raw=true)
 
 Tableau Model #3: Created a total performance field by summing total yards and adding it to (6 x Touchdowns) to factor in the added value of touchdowns. Then plotted salary vs the total performance metric. Seems like the more a player is paid, the better they perform. Once again correlation does not mean causation
-![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%203.png?raw=true)
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/.images/Tableau%20Model%203.png?raw=true)
