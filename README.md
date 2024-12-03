@@ -133,3 +133,4 @@ Query #4: Show all players traded in the month of October, along with their team
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%204.png?raw=true)
 
 Query #5: Show all players in that have been injured that have at least 100 passing, rushing or receiving yards while showing their height, weight, and yards. Group each player by division and order them in descending order of yards
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%205.png?raw=true)
