@@ -73,3 +73,47 @@ Team_Record Table:
   Losses (INT): Number of losses.
   Ties (INT): Number of ties.
 
+Statistics Table:
+  Stat_ID (INT) PK: Unique ID for each statistic record.
+  Player_ID (INT) FK: References Player_ID.
+  Game_ID (INT) FK: References Game_ID.
+  Passing_Yards (INT): Total passing yards.
+  Rushing_Yards (INT): Total rushing yards.
+  Receiving_Yards (INT): Total receiving yards.
+  Passing_Touchdowns (INT): Total passing touchdowns.
+  Rushing_Touchdowns (INT): Total rushing touchdowns.
+  Receiving_Touchdowns (INT): Total receiving touchdowns.
+  Interceptions (INT): Total interceptions thrown.
+  Fumbles (INT): Total fumbles.
+
+Injury Table:
+  Injury_ID (INT) PK: Unique injury record ID.
+  Player_ID (INT) FK: References Player_ID.
+  Game_ID (INT) FK: References Game_ID.
+  Description (TEXT): Description of the injury.
+  Recovery_Time (INT): Estimated recovery time in weeks.
+
+Season Table:
+  Season_ID (INT) PK: Unique ID for each season.
+  Year (INT): The year of the season (e.g., 2023).
+
+Award Table:
+  Award_ID (INT) PK: Unique award ID.
+  Player_ID (INT) FK: References Player_ID.
+  Type (VARCHAR 50): Type of award (e.g., MVP, Rookie of the Year).
+
+Division Table:
+  Division_ID (INT) PK: Unique division ID.
+  Name (VARCHAR 50): Name of the division (e.g., NFC East, AFC West).
+  Team_Division Table:
+  Team_ID (INT) FK: References Team_ID.
+  Division_ID (INT) FK: References Division_ID.
+
+Game Table:
+  Game_ID (INT) PK: Unique ID for each game.
+  Season_ID (INT) FK: References the season.
+  Home_Team (INT) FK: References the home team (Team_ID).
+  Away_Team (INT) FK: References the away team (Team_ID).
+  Stadium_ID (INT) FK: References Stadium_ID.
+  Game_Date (DATE): Date of the game.
+
