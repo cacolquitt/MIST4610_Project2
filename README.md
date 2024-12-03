@@ -138,3 +138,6 @@ Query #5: Show all players in that have been injured that have at least 100 pass
 Tableau:
 
 Tableau Model #1: QB Salary and Team Wins. Shows a mostly positive correlation between paying your QB more and winning more. Remember correlation does not mean causation, but does show that maybe paying a good QB does help your team in the long run
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%201.png?raw=true)
+
+Tableau Model #2: WR total yards (receiving and rushing yards combined) vs losses. As you can see the players with more total yards are typically on the left side of the graph, meaning they have fewer losses. The players with low yardage totals on the left side of the graph could indicate that they do not impact winning for their team. However, again correlation doesn't equal causation
