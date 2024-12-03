@@ -141,3 +141,6 @@ Tableau Model #1: QB Salary and Team Wins. Shows a mostly positive correlation b
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%201.png?raw=true)
 
 Tableau Model #2: WR total yards (receiving and rushing yards combined) vs losses. As you can see the players with more total yards are typically on the left side of the graph, meaning they have fewer losses. The players with low yardage totals on the left side of the graph could indicate that they do not impact winning for their team. However, again correlation doesn't equal causation
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Tableau%20Model%202.png?raw=true)
+
+Tableau Model #3: Created a total performance field by summing total yards and adding it to (6 x Touchdowns) to factor in the added value of touchdowns. Then plotted salary vs the total performance metric. Seems like the more a player is paid, the better they perform. Once again correlation does not mean causation
