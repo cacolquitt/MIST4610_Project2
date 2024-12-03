@@ -117,3 +117,6 @@ Game Table:
   Stadium_ID (INT) FK: References Stadium_ID.
   Game_Date (DATE): Date of the game.
 
+Queries:
+
+Query #1: Multi Join
