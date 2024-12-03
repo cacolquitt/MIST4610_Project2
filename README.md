@@ -22,3 +22,4 @@ Division: Defines the NFL divisions.
 Contract: Stores contract details of players.
 Trade: Tracks player trades between teams.
 Team_Record: Tracks a team's record in a given season.
+https://github.com/cacolquitt/MIST4610_Project2/blob/main/Data%20Model.png?raw=true
