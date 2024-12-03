@@ -120,3 +120,4 @@ Game Table:
 Queries:
 
 Query #1: Multi Join
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%201%20(2).png?raw=true)
