@@ -130,3 +130,6 @@ Query #3: Show all the players that have at least one receiving and one rushing 
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%203.png?raw=true)
 
 Query #4: Show all players traded in the month of October, along with their team record, height, weight, and touchdowns, that have not suffered not an injury
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%204.png?raw=true)
+
+Query #5: Show all players in that have been injured that have at least 100 passing, rushing or receiving yards while showing their height, weight, and yards. Group each player by division and order them in descending order of yards
