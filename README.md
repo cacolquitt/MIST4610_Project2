@@ -127,3 +127,6 @@ Query #2: Show all the players that have a contract worth more than $200 million
 ![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%202.png?raw=true)
 
 Query #3: Show all the players that have at least one receiving and one rushing touchdown that play in an NFC division with more than 5 wins
+![Alt text](https://github.com/cacolquitt/MIST4610_Project2/blob/main/Query%203.png?raw=true)
+
+Query #4: Show all players traded in the month of October, along with their team record, height, weight, and touchdowns, that have not suffered not an injury
